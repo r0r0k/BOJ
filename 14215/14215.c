@@ -33,6 +33,8 @@ int main()
         for (int i = 0; i < 3; i++)
             new_round += sides[i];
 
-        printf("%d", 2 * new_round - 1); // 반복문 결과 new_round에는 빗변을 제외한 두 변의 합이 나오므로 2배 후 -1을 해주면 최대 둘레의 삼각형이 나옴
+        printf("%d", 2 * new_round - 1);
+        // 반복문 결과 new_round에는 빗변을 제외한 두 변의 합이 나오므로 2배 후 -1을 해주면 최대 둘레의 삼각형이 나옴
+        // 두 변의 합 -1이 최대 빗변 길이기 때문
     }
 }

@@ -22,7 +22,7 @@ int main()
     // x, y의 solution을 계산
     // 정수가 아닌 해를 계산하기 위해서는 double로 형 변환이 필요
     // double인 해를 구할 때, operator가 "/"인 경우 operand도 전부 double로 형 변환이 필요함 (+,-,%)는 상관X
-    // 추가적으로 아래처럼 double을 %d로 출력하면 0이 출력됨
+    // 추가적으로 아래처럼 double을 %d로 출력하면 0이 출력됨 (%f는 괜찮음)
     double y = (double)cons / (double)coef_y;
     double x = (double)(cons_f - y_e * y) / (double)x_d;
 
@@ -33,5 +33,5 @@ int main()
 
     // double k = i - j;
 
-    // printf("\n%d %lf", k, k);
+    // printf("\n%d %f %lf", k, k, k);
 }

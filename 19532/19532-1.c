@@ -26,6 +26,7 @@ int main()
     double y = (double)cons / (double)coef_y;
     double x = (double)(cons_f - y_e * y) / (double)x_d;
 
+    // 소수점을 버리고 정수로 출력하려면 int로 형변환 필요
     printf("%d %d", (int)x, (int)y);
 
     // int i = 3;

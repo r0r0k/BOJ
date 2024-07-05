@@ -1,3 +1,6 @@
+```
+// 2751번
+
 #include <iostream>
 #include <algorithm>
 
@@ -37,3 +40,4 @@ int main()
 
     delete[] arr;
 }
+```            

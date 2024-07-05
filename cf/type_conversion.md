@@ -1,3 +1,6 @@
+```
+// 19532번
+
 #include <stdio.h>
 
 // brute-force를 사용하지 않고 풀이
@@ -36,3 +39,4 @@ int main()
 
     // printf("\n%d %f %lf", k, k, k);
 }
+```

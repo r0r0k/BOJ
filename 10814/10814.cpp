@@ -46,7 +46,7 @@ int main()
     {
         cin >> age >> name;
         arr[i] = MemberInfo(age, name, time);
-        time++;
+        time++; // 가입 시간을 증가시켜서 비교가 가능하도록 update 해줌
     }
 
     sort(arr, arr + count);

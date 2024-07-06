@@ -51,6 +51,9 @@ int main()
     sort(copy.begin(), copy.end());
     copy.erase(unique(copy.begin(), copy.end()), copy.end()); // 중복 제거
 
+    // 아래는 copy에서 vec의 index를 찾는 과정에서 for문을 통한 선형탐색이나, find 함수를 통한 선형탐색이 아닌
+    // lower_bound 함수를 통한 이진 탐색을 하기 때문에 시간초과 발생 안함
+
     // vector<int>::iterator it;
     for (int i = 0; i < count; i++) // vec을 선형 순회
     {

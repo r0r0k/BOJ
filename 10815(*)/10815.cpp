@@ -28,12 +28,20 @@ int main()
     {
         cin >> tmp;
         it = lower_bound(vec.begin(), vec.end(), tmp);
+
         // 여기서 lower_bound를 못찾아서 vec.end()가 return 되는 경우 distance로 index에 접근 못하기 때문에 오류 발생
         // 따라서 lower_bound가 vec.end()일 때는 바로 0을 출력해주면 됨
         if (it == vec.end())
             cout << "0 ";
         else
             cout << (tmp == vec[distance(vec.begin(), it)]) << " ";
+
+        // 아래처럼 더 간단히도 가능
+
+        // if (lower_bound(vec.begin(), vec.end(), tmp) == vec.end())
+        //     cout << "0 ";
+        // else
+        //     cout << (tmp == vec[lower_bound(vec.begin(), vec.end(), tmp) - vec.begin()]) << " ";
     }
 
     // 아래 방법으로 선형 탐색을 하면 시간 초과 발생

@@ -37,7 +37,7 @@ int main()
     for (int i = 0; i < count; i++)
         cin >> vec[i];
 
-    sort(vec.begin(), vec.end()); // lower_bound는 이진 탐색을 하기 때문에 vector가 정렬되어 있어야 함
+    sort(vec.begin(), vec.end()); // 이진 탐색을 하기 위해서는 vector가 정렬되어 있어야 함
 
     cin >> count;
     int tmp;

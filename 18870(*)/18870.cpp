@@ -64,7 +64,8 @@ int main()
         // distance는 iterator의 index를 return
         cout << distance(copy.begin(), it) << " ";
 
-        // 아래 처럼 한줄로 가능
+        // 아래 경우들 처럼 한줄로 가능
+        // cout << lower_bound(copy.begin(), copy.end(), vec[i]) - copy.begin() << " ";
         // cout << distance(copy.begin(), lower_bound(copy.begin(), copy.end(), vec[i])) << " ";
     }
 

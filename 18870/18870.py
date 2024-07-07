@@ -11,7 +11,7 @@ sort_list = sorted(list(set(lst))) # set으로 중복 제거 후 sorted로 오�
 dic = {} # dict로 선언하면 index(key) 가 음수가 될 수 있기 때문
 for i in range(len(sort_list)):
   dic[sort_list[i]] = i # dic의 index가 sort_list의 값이 되고, 해당 sort_list의 값이 dic의 값이 됨
-# {-1: 0, 2: 1, 3: 2}
+# {-1: 0, 2: 1, 3: 2} -> 각 key에 해당하는 값은 xi'을 나타냄
 
 for i in lst:
   print(dic[i], end=" ")

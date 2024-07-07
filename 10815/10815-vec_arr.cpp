@@ -1,5 +1,5 @@
 #include <iostream>
-#include <algorithm>
+#include <vector>
 #include <set>
 
 using namespace std;
@@ -13,21 +13,25 @@ int main()
     int count;
     cin >> count;
 
-    set<int> s;
+    vector<bool> vec(20000001, false); // 4464 KB
+    // bool arr[200000001] = {
+    //     0,
+    // };
+    // 197212 KB, int로 하면 메모리 초과
+
     int tmp;
     for (int i = 0; i < count; i++)
     {
         cin >> tmp;
-        s.insert(tmp);
+        vec[tmp + 10000000] = true;
+        // arr[tmp + 100000000] = true;
     }
 
     cin >> count;
-
     for (int i = 0; i < count; i++)
     {
         cin >> tmp;
-        // set은 이진 트리로 구현되어 있어서 find시 자동으로 이진 탐색 가능 O(logn)
-        // vector는 O(n)
-        cout << (s.end() != s.find(tmp)) << " "; // find 실패시 s.end()가 반환되기 때문에 s.end()가 아니면 1 반환
+        cout << vec[tmp + 10000000] << " ";
+        // cout << arr[tmp + 100000000] << " ";
     }
 }

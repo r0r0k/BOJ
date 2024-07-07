@@ -26,8 +26,10 @@ int main()
     for (int i = 0; i < string_count; i++)
     {
         cin >> tmp;
-        if (m[tmp])
+        if (m.end() != m.find(tmp)) // 7836 KB, 64 ms
             count++;
+        // if (m[tmp]) // 9816 KB, 84 ms
+        //     count++;
     }
 
     cout << count;

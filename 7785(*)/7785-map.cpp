@@ -26,7 +26,11 @@ int main()
     // map이나 set은 기본적으로 오름차순 정렬임
     // 내림차순으로 정렬하려면 greater<>를 쓰거나 cmp struct를 새로 만들어줘야함
     map<string, bool, cmp> m;
-    // map<string, bool, greater<>> m;
+    // map<string, bool, greater<>> m; // <>를 안쓰면 추론 -> <string>으로 추론됨
+
+    // sort(number.begin(), number.end(), greater<char>());
+    // 1427번에서 위의 코드는 string number 변수를 오름차순으로 정렬하는 것이므로 greater<char>로 해줌
+
     for (int i = 0; i < count; i++)
     {
         cin >> name >> history;

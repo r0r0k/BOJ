@@ -27,6 +27,17 @@ int main()
     for (int i = 0; i < count; i++)
     {
         cin >> tmp;
+
+        // 1. lower_bound - vec.begin() 사용
+        // if (lower_bound(vec.begin(), vec.end(), tmp) == vec.end())
+        //     cout << "0 ";
+        // else
+        //     cout << (tmp == vec[lower_bound(vec.begin(), vec.end(), tmp) - vec.begin()]) << " ";
+
+        // 2. upper_bound - lower_bound 사용
+        // cout << upper_bound(vec.begin(), vec.end(), tmp) - lower_bound(vec.begin(), vec.end(), tmp) << " ";
+
+        // 3. lower_bound, distance 사용
         it = lower_bound(vec.begin(), vec.end(), tmp);
 
         // 여기서 lower_bound를 못찾아서 vec.end()가 return 되는 경우 distance로 index에 접근 못하기 때문에 오류 발생
@@ -35,16 +46,9 @@ int main()
             cout << "0 ";
         else
             cout << (tmp == vec[distance(vec.begin(), it)]) << " ";
-
-        // 아래처럼 더 간단히도 가능
-
-        // if (lower_bound(vec.begin(), vec.end(), tmp) == vec.end())
-        //     cout << "0 ";
-        // else
-        //     cout << (tmp == vec[lower_bound(vec.begin(), vec.end(), tmp) - vec.begin()]) << " ";
     }
 
-    // 아래 방법으로 선형 탐색을 하면 시간 초과 발생
+    // 4. 선형 탐색 -> TLE
     // for (int i = 0; i < count; i++)
     // {
     //     cin >> tmp;

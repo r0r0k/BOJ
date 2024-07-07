@@ -28,7 +28,7 @@ int main()
         cin >> tmp;
         if (m.end() != m.find(tmp)) // 7836 KB, 64 ms
             count++;
-        // if (m[tmp]) // 9816 KB, 84 ms
+        // if (m[tmp]) // key가 없으면 0 반환 : 9816 KB, 84 ms
         //     count++;
     }
 

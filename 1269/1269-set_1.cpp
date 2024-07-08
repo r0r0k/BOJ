@@ -26,7 +26,7 @@ int main()
     {
         cin >> tmp;
         if (s.find(tmp) != s.end())
-            count--; // 만약 입력받는 집합에 중복이 있었다면 이렇게 하면 안되고 map을 써야함
+            count--; // 만약 입력받는 집합에 중복이 있었다면 이렇게 하면 안되고 map을 쓰거나 set을 하나 더 선언해서 iterator 방식을 써야함
         else
             s.insert(tmp);
     }

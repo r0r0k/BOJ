@@ -1,0 +1,49 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+void find_prime(long int &number)
+{
+    long int cmp = 0; // 처음엔 반복문의 조건에 걸리지 않기 위해 0으로 초기화
+    // 여기서 만약 int로 선언해줬다면, 반복문에서 long int인 number가 cmp에 짤려서 들어가서 이상한 값이 들어가버림
+    // 그렇다면, 아래에서 number++이 되지 않은 소수여도 cmp가 number와 달라져서 무한 루프를 돌게 되어 시간초과 발생
+    while (cmp != number)
+    {
+        cmp = number;
+        for (int i = 2; i <= sqrt(number); i++) // 만약 종료 조건을 i * i <= number로 쓰면 i가 매우 커지는 경우 i * i에 시간이 많이 들어서 TLE 발생
+        {
+            if (number % i == 0)
+            {
+                number++;
+                break;
+            }
+        }
+    }
+}
+
+// sqrt(number) 까지만 검사해줘도 약수는 대칭이므로, 시간을 O(n)에서 O(sqrt(n))까지 줄일 수 있음
+int main()
+{
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+
+    int count;
+    cin >> count;
+
+    long int number;
+    while (count--)
+    {
+        cin >> number;
+
+        if (number <= 2) // 아래 반복문에서 i는 2부터 number -1까지 순회할 것이므로 number가 2일 때는 미리 출력해줌
+            cout << '2' << '\n';
+
+        else
+        {
+            find_prime(number);
+            cout << number << '\n';
+        }
+    }
+}

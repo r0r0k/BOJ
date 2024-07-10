@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -11,18 +12,13 @@ int main()
     int count;
     cin >> count;
 
-    // false : 열림, true : 닫힘
-    // 미리 초기화해주면서 1번째 사람은 모든 창문을 열도록 설정
-    bool *arr = new bool[count + 1]();
+    // 1.
+    int square_number_cnt = 0;
+    for (int i = 1; i * i <= count; i++)
+        square_number_cnt++;
 
-    for (int i = 2; i <= count; i++)
-        for (int j = 2 * i; j <= count; j += i)
-            arr[j] = !arr[j];
+    // 2.
+    square_number_cnt = sqrt(count);
 
-    int count = 0;
-    for (int i = 1; i <= count + 1; i++)
-        if (arr[i] == false)
-            count++;
-
-    cout << count;
+    cout << square_number_cnt;
 }

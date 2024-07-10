@@ -3,17 +3,17 @@
 
 using namespace std;
 
-void find_prime(bool *arr, int arr_size)
+void find_prime(bool *arr, int max)
 {
     // 정적 배열일 때는 이렇게 해도 되지만, 동적 할당을 한 포인터인 경우 이렇게 하면 sizeof(arr)가 포인터의 크기를 리턴하므로 불가능
-    // int arr_size = sizeof(arr) / sizeof(arr[0]);
+    // int max = sizeof(arr) / sizeof(arr[0]) - 1;
 
     arr[1] = true;
-    for (int i = 2; i <= arr_size; i++)
+    for (int i = 2; i <= max; i++)
     {
         if (arr[i] == true)
             continue;
-        for (int j = 2 * i; j <= arr_size; j += i)
+        for (int j = 2 * i; j <= max; j += i)
             arr[j] = true;
     }
 }
@@ -37,7 +37,7 @@ int main()
         max = 2 * min;
         arr = new bool[max + 1]();
 
-        find_prime(arr, max + 1);
+        find_prime(arr, max);
 
         for (int i = min + 1; i <= max; i++)
             if (arr[i] == false)

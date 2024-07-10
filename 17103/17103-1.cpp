@@ -12,7 +12,7 @@ int main()
     cin >> count;
 
     bool *arr;
-    int arr_size;
+    int max;
 
     int number;
     int partition_count;
@@ -24,15 +24,15 @@ int main()
         cin >> number;
 
         // 입력을 받을 때 마다 입력 범위의 에라토스테네스의 체를 만듬 : 오히려 메모리랑 시간 더 많이 듬
-        arr_size = number + 1;
-        arr = new bool[arr_size]();
+        max = number;
+        arr = new bool[max + 1]();
         arr[1] = true;
 
-        for (int i = 2; i <= arr_size; i++)
+        for (int i = 2; i <= max; i++)
         {
             if (arr[i] == true)
                 continue;
-            for (int j = 2 * i; j <= arr_size; j += i)
+            for (int j = 2 * i; j <= max; j += i)
                 arr[j] = true;
         }
 

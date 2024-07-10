@@ -13,14 +13,14 @@ int main()
 
     // 미리 입력값 범위의 에라토스 테네스 체를 선언 후 아래에서 계속 사용하도록 함
     bool *arr = new bool[1000001]();
-    int arr_size = 1000001;
+    int max = 1000000;
 
     arr[1] = true;
-    for (int i = 2; i <= arr_size; i++)
+    for (int i = 2; i <= max; i++)
     {
         if (arr[i] == true)
             continue;
-        for (int j = 2 * i; j <= arr_size; j += i)
+        for (int j = 2 * i; j <= max; j += i)
             arr[j] = true;
     }
 

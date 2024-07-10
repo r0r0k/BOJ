@@ -28,7 +28,7 @@ public:
     void pop()
     {
         this->size--;
-        stack.pop_back
+        stack.pop_back();
     }
 
     int is_empty()

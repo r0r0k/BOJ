@@ -27,10 +27,11 @@ int main()
     while (vec.size() > 0)
     {
         number = vec[index];
+        cout << number;
+
         move = moves[number];
         vec.erase(vec.begin() + index);
 
-        cout << number;
         if (vec.size() > 0)
         {
             cout << " ";
@@ -41,7 +42,12 @@ int main()
             }
 
             else if (move < 0)
-                index = (index - abs(move) + vec.size()) % vec.size();
+            {
+                // 아래 코드가 없으면 move가 vec.size()를 넘어가는 경우 index 자체가 vec.size()를 더해줘도 음수가 나올 수 있음 : move는 -1000도 가능하기 때문
+                // 따라서, 아래 코드를 통해 move가 실질적으로 왼쪽으로 몇번 이동해야 하는지 구해야함
+                move = abs(move) % vec.size();
+                index = (index - move + vec.size()) % vec.size();
+            }
         }
     }
 }

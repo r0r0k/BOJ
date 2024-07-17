@@ -4,7 +4,7 @@
 using namespace std;
 
 int N, M;
-int arr[7]; // N, M <= 7
+int arr[8]; // N, M <= 8
 
 void function(int size)
 {
@@ -22,7 +22,10 @@ void function(int size)
         return;
     }
 
-    for (int i = 1; i <= N; i++)
+    int i;
+    for (size == 0 ? i = 1 : i = arr[size - 1];
+         i <= N;
+         i++)
     {
         arr[size] = i;
         function(size + 1);

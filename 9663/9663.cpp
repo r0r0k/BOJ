@@ -27,7 +27,7 @@ void function(int row)
     // i는 column
     for (int i = 0; i < N; i++)
     {
-        if (!is_used[i] && !pos_diagonal[row + i] && !neg_diagonal[row - i + N - 1])
+        if (!is_used[i] && !pos_diagonal[row + i] && !neg_diagonal[row - i + N - 1]) // 셋다 false인 경우
         {
             // if 조건에서 가능한 case가 없으면 function(row + 1)을 호출하지 못하기 때문에, case_count++을 불가능
             is_used[i] = true;

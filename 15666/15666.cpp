@@ -4,11 +4,10 @@
 using namespace std;
 
 int N, M;
-int number[8];   // 입력으로 받은 숫자를 저장하는 배열
-int arr[8];      // 출력할 수열을 저장할 배열
-bool is_used[8]; // number의 index가 사용되었는지 저장하는 배열
+int number[8];
+int arr[8];
 
-void foo(int size)
+void func(int size, int prev_index) // 비내림차순을 위해 prev_index 추가
 {
     if (size == M)
     {
@@ -24,15 +23,15 @@ void foo(int size)
         return;
     }
 
-    for (int i = 0; i < N; i++)
+    int cmp = 0;
+    for (int i = prev_index; i < N; i++)
     {
-        if (!is_used[i])
+        if (cmp != number[i])
         {
+            cmp = number[i];
             arr[size] = number[i];
-            is_used[i] = true;
 
-            foo(size + 1);
-            is_used[i] = false;
+            func(size + 1, i);
         }
     }
 }
@@ -50,7 +49,7 @@ int main()
 
     sort(number, number + N);
 
-    foo(0);
+    func(0, 0);
 
     return 0;
 }

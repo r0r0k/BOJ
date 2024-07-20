@@ -21,6 +21,7 @@ void foo(int size)
             else
                 cout << " ";
         }
+        return;
     }
 
     int cmp = 0; // 현재 size에서 저장한 arr에 저장한 number와 동일한지 체크하기 위한 변수 : 반복문 밖에서 초기화해줘야함

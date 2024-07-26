@@ -2,8 +2,8 @@
 using namespace std;
 
 int n, m;
-int arr[100001];
-int cum_sum[100001]; // 테이블 정의하기 : cum_sum[i] 는 i까지의 누적핪
+int arr[100001];     // 입력값을 저장할 배열
+int cum_sum[100001]; // 테이블 정의하기 : cum_sum[i] 는 i까지의 누적합
 int start_, end_;
 
 int main()

@@ -4,6 +4,16 @@ using namespace std;
 int n;
 int dp[1000001]; // 테이블 정의 : dp[i] 는 길이가 i인 2진 수열의 개수를 15746으로 나눈 나머지
 
+int memoization(int n)
+{
+    if (n == 1 || n == 2)
+        return n;
+    if (dp[n] != 0)
+        return dp[n];
+
+    return dp[n] = (memoization(n - 1) + memoization(n - 2)) % 15746;
+}
+
 int main()
 {
     ios::sync_with_stdio(0);
@@ -20,6 +30,8 @@ int main()
         dp[i] = (dp[i - 1] + dp[i - 2]) % 15746; // 점화식 찾기
 
     cout << dp[n];
+
+    // cout << memoization(n);
 
     return 0;
 }

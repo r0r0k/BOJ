@@ -18,7 +18,7 @@ int main()
     for (int i = 1; i <= n; i++)
         cin >> arr[i];
 
-    // 초기값 정하기 : 사실 생각해보면 1-index에서는 (i - 1)이 점화식 항에 포함된 경우 딱히 안해줘도 되긴함ㄴ
+    // 초기값 정하기 : 사실 생각해보면 1-index에서는 (i - 1)이 점화식 항에 포함된 경우 딱히 안해줘도 되긴함
     cum_sum[1] = arr[1];
     sum_max = arr[1];
 
@@ -30,16 +30,11 @@ int main()
     {
         if (neg_flag == true)
         {
-            if (arr[i] < 0)                     // 여전히 arr[i] 가 음수인 경우, 다음 i로 넘어감
-                sum_max = max(sum_max, arr[i]); // 이걸 안해주면 [-5 -4 -3]인 경우 -5로 출력됨
+            cum_sum[i] = arr[i];
+            sum_max = max(sum_max, cum_sum[i]); // 연속합의 최댓값을 비교
 
-            else // arr[i]가 음수가 아닌 경우, 누적합을 현재 arr[i]부터 새로 계산
-            {
-                cum_sum[i] = arr[i];
+            if (cum_sum[i] >= 0)
                 neg_flag = false;
-
-                sum_max = max(sum_max, cum_sum[i]); // 연속합의 최댓값을 비교
-            }
         }
 
         else
@@ -48,8 +43,8 @@ int main()
 
             if (cum_sum[i] < 0) // 누적합이 음수가 되는 순간 neg_flag를 true로 바꿔서 다음 반복문에서 새로운 누적합 계산
                 neg_flag = true;
-
-            sum_max = max(sum_max, cum_sum[i]); // 연속합의 최댓값을 비교
+            else
+                sum_max = max(sum_max, cum_sum[i]); // 연속합의 최댓값을 비교
         }
     }
 

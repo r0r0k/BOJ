@@ -17,14 +17,14 @@ int main()
     for (int i = 1; i <= n; i++)
         cin >> arr[i];
 
-    // 초기값 정하기 : 사실 생각해보면 1-index에서는 (i - 1)이 점화식 항에 포함된 경우 딱히 안해줘도 되긴함ㄴ
+    // 초기값 정하기 : 사실 생각해보면 1-index에서는 (i - 1)이 점화식 항에 포함된 경우 딱히 안해줘도 되긴함
     cum_sum[1] = arr[1];
     sum_max = arr[1];
 
     for (int i = 2; i <= n; i++)
     {
         cum_sum[i] = max(cum_sum[i - 1] + arr[i], arr[i]); // dp[i-1]이 음수였다면 arr[i]로 업데이트됨
-        sum_max = max(cum_sum[i], sum_max);
+        sum_max = max(sum_max, cum_sum[i]);
     }
 
     cout << sum_max;

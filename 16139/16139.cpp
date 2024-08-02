@@ -28,15 +28,15 @@ int main()
 
         else
         {
-            prev_flag[ch - 'a'] = true;
+            prev_flag[ch - 'a'] = true; // 해당 문자의 누적합을 이미 구했음을 표시
 
             // 0-index로 해야 l, r을 파악하기 쉽기 때문에 index 0은 미리 초기화해줌
             if (str[0] == ch)
                 cum_sum[ch - 'a'][0] = 1;
 
-            for (int i = 1; i < str.length(); i++)
+            for (int i = 1; i < str.length(); i++) // 다음에 같은 문자에 대해 더 큰 r이 들어올 수 있으므로 전체 문자열에 대한 누적합을 미리 구함
             {
-                cum_sum[ch - 'a'][i] = cum_sum[ch - 'a'][i - 1]; // 누적합을 가져옴
+                cum_sum[ch - 'a'][i] = cum_sum[ch - 'a'][i - 1]; // 이전 항의 누적합을 가져옴
                 if (str[i] == ch)                                // 문자를 찾은 경우
                     cum_sum[ch - 'a'][i]++;                      // 누적합 + 1
             }

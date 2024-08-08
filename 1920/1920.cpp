@@ -3,7 +3,7 @@
 using namespace std;
 
 int n;
-unordered_set<int> s;
+unordered_set<int> s; // 탐색이 필요없기 때문에 해시 테이블로 find 하는게 훨씬 빠름
 
 int main()
 {

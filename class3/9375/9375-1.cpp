@@ -12,7 +12,6 @@ void bt(int cur, int size)
 {
     for (int i = cur; i < size; i++)
     {
-        bool insert_flag = false;
         if (is_used.insert(type_arr[i]).second != false) // is_used에 해당 의상 종류가 존재하지 않는 경우
         {
             cnt++;

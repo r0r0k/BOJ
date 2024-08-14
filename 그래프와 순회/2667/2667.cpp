@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <queue>
 using namespace std;
 
 int n;
@@ -26,6 +27,51 @@ void dfs(int row, int col)
         dfs(row, col + 1);
 }
 
+void bfs(int row, int col)
+{
+    queue<pair<int, int>> q;
+    q.push({row, col});
+
+    cnt++;
+    matrix[row][col] = 0;
+
+    while (!q.empty())
+    {
+        pair<int, int> u = q.front();
+        q.pop();
+        int row = u.first;
+        int col = u.second;
+
+        if (matrix[row - 1][col] == 1) // 상
+        {
+            matrix[row - 1][col] = 0;
+            cnt++;
+            q.push({row - 1, col});
+        }
+
+        if (matrix[row + 1][col] == 1) // 하
+        {
+            matrix[row + 1][col] = 0;
+            cnt++;
+            q.push({row + 1, col});
+        }
+
+        if (matrix[row][col - 1] == 1) // 좌
+        {
+            matrix[row][col - 1] = 0;
+            cnt++;
+            q.push({row, col - 1});
+        }
+
+        if (matrix[row][col + 1] == 1) // 우
+        {
+            matrix[row][col + 1] = 0;
+            cnt++;
+            q.push({row, col + 1});
+        }
+    }
+}
+
 int main()
 {
     ios::sync_with_stdio(0);
@@ -49,6 +95,7 @@ int main()
             if (matrix[i][j] == 1)
             {
                 dfs(i, j);
+                // bfs(i, j);
                 house_cnt.push_back(cnt);
                 cnt = 0;
             }

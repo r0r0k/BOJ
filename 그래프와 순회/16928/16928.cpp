@@ -30,8 +30,16 @@ void bfs(int start)
 
             if (ladder[v] != 0) // 해당 자리가 사다리라면, v를 사다리의 목적지로 이동
                 v = ladder[v];
+
             if (snake[v] != 0) // 해당 자리가 뱀이라면, v를 뱀의 목적지로 이동
                 v = snake[v];
+
+            // ladder나 snake의 끝점이 다른 ladder와 snake로 연결된 경우
+            // while (ladder[v] != 0) // 해당 자리가 사다리라면, v를 사다리의 목적지로 이동
+            //     v = ladder[v];
+
+            // while (snake[v] != 0) // 해당 자리가 뱀이라면, v를 뱀의 목적지로 이동
+            //     v = snake[v];
 
             if (matrix[v] == 0) // 사다리나 뱀의 목적지여도 matrix[v] == 0이 아닌 경우, 이미 더 빨리 방문한 최단 거리가 존재한다는 뜻이므로 push하지 않아도 됨 : 최단거리 보장
             {

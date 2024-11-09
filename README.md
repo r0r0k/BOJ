@@ -1,2 +1,2 @@
-# BOG
+# BOJ
 Baekjoon Online Judge write up

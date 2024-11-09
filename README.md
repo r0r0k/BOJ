@@ -1,2 +1,2 @@
-# Baekjoon
-Baekjoon write up
+# BOG
+Baekjoon Online Judge write up
